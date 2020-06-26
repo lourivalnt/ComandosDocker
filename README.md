@@ -1,15 +1,23 @@
 # Comandos Docker
 
 ## Instalação
- * ##### Baixe as últimas atualizações do sistema.
+ * ##### Baixe as últimas atualizações do sistema
     * sudo apt update && sudo apt upgrade
+ * ##### Para instalar o docker engine
     * sudo apt-get install apt-transport-https \
        ca-certificates \
        curl \
        gnupg-agent \
        software-properties-common
-
+       
 https://docs.docker.com/engine/install/ubuntu/
+
+ * ##### Docker compose no GNU/Linux
+    * sudo curl -L "https://github.com/docker/compose/releases/download/1.26.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+https://docs.docker.com/compose/install/
+
+
 
 ## Histórico de Lançamentos
 
