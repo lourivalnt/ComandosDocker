@@ -27,9 +27,25 @@ https://docs.docker.com/compose/install/
     * docker ps
 * ##### Mostra todos os containers, usando o complemento ‐a ao parâmetro ps é listado todos containers que já foram pausados ou fechados
     * docker ps -a
-* ##### Outra opção bastante utilizada é a ‐q, que retorna apenas o ID do container
-    * docker ps ‐qa
+* ##### Ligar o container, pode receber como argumento o ID ou nome do container
+    * docker start (id do container)
+* ##### Desligar o container, pode receber como argumento o ID ou nome do container
+    * docker stop (id do container)
 * ##### Informa, em tempo de execução, detalhes sobre quanto o docker está consumindo de memória, cpu e etc.
     * docker stats
+* ##### A imagem do nginx será baixada para o host, podendo ser aberto na porta 8080. Basta acessar no navegador o endereço: http://localhost:8080/
+    * docker run -it -p 8080:80 nginx
+    * Obs: O parâmetro ‐i possibilita termos interatividade com o container, e o ‐t que queremos nos linkar ao terminal do container. 
+         Uso do ‐p informa que estamos informando ao Docker que a porta 8080 no host local será aberta e mapeada para a porta 80 no container
+* ##### Com comando acima nosso console poderá ficar travado, com isso devemos executar o container em background, adicionando -d ao comando
+    * docker run -it -d -p 8080:80 nginx
+* ##### Com comando acima nosso console poderá ficar travado, com isso devemos executar o container em background, adicionando -d ao comando
+    * docker run -it -d -p 8080:80 nginx
+* ##### Destrói imagens, ao indicarmos o ID da imagem que queremos apagar
+    * docker rmi IdContainer
+* ##### Apaga todos os containers e imagens de uma só vez
+    * docker rm $(docker ps ‐qa)
+* ##### Apaga todos os containers e imagens de uma só vez
+    * docker rmi $(docker images ‐q)
 
     
