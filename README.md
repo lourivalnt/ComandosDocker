@@ -48,4 +48,21 @@ https://docs.docker.com/compose/install/
 * ##### Apaga todos os containers e imagens de uma só vez
     * docker rmi $(docker images ‐q)
 
-    
+## Error deleting a Docker Image
+
+* ##### You are not able to delete the Docker images
+    * docker rmi 53d0b89b69b6
+    * docker images purge
+* ##### When you try to delete a Docker image, you face the following error messages:
+    * Error response from daemon: conflict: unable to delete 53d0b89b69b6 (must be forced) - image is referenced in multiple repositories
+    * Error response from daemon: conflict: unable to delete 53d0b89b69b6 (must be forced) - image is referenced in multiple repositories
+    * Error response from daemon: conflict: unable to delete c9bc824b2e58 (cannot be forced) - image has dependent child images     
+* ##### To solve this problem, you need to force the deletion of the docker image.
+    * docker rmi 53d0b89b69b6 -f  
+* ##### Here is the command output:
+    * Deleted: sha256:53d0b89b69b69d2fefc89688da66a4fc4fdffe822217b5958627d5d30fa7eb2c
+    * Deleted: sha256:66a479a7e7b749f39e613350e559bc62048f917592d88de2ceb8257517ed4894
+    * Deleted: sha256:c9bc824b2e58c1ac340a04390468388cc2a4e9b8ddfaa4c7b8d3d3362e8360e4
+    * Deleted: sha256:785ba2cb224274c2396b0f08f9c9b1bec632451141407b5e6dbb9c77e4acb555
+* ##### The following command will delete all Docker images.
+    * docker rmi $(docker images -a -q) -f
